@@ -123,9 +123,18 @@ class WinstonLogDna {
     });
     // avoid recursive object problem in logdna-winston --> mostly from native Error
     const processedMeta = meta.map(aMeta => {
-      /// if aMeta is a nativeError, has errno and syscall, shall serialize
+      /// if aMeta is a nativeError, it mostly recursive
       if (aMeta.errno && aMeta.syscall) {
-        return serializeError(aMeta);
+        return {
+          errno: aMeta.errno,
+          code: aMeta.code,
+          syscall: aMeta.syscall,
+          address: aMeta.address,
+          port: aMeta.port,
+          info: aMeta.info,
+          path: aMeta.path,
+          message: aMeta.message
+        };
       } else return aMeta;
     });
     this.logger.log(levelName, msg, ...processedMeta);
