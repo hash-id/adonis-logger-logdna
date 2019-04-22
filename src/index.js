@@ -121,7 +121,14 @@ class WinstonLogDna {
     const levelName = _.findKey(this.levels, num => {
       return num === level;
     });
-    this.logger.log(levelName, msg, ...meta);
+    // avoid recursive object problem in logdna-winston --> mostly from native Error
+    const processedMeta = meta.map(aMeta => {
+      /// if aMeta is a nativeError, has errno and syscall, shall serialize
+      if (aMeta.errno && aMeta.syscall) {
+        return serializeError(aMeta);
+      } else return aMeta;
+    });
+    this.logger.log(levelName, msg, ...processedMeta);
   }
 }
 

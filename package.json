@@ -22,5 +22,8 @@
     "@adonisjs/sink": "^1.0.17",
     "japa": "^2.0.10",
     "japa-cli": "^1.0.1"
+  },
+  "dependencies": {
+    "serialize-error": "^4.1.0"
   }
 }
