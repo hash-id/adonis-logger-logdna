@@ -1,0 +1,26 @@
+{
+  "name": "adonis-logger-logdna",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hash-id/adonis-logger-logdna.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hash-id/adonis-logger-logdna/issues"
+  },
+  "homepage": "https://github.com/hash-id/adonis-logger-logdna#readme",
+  "devDependencies": {
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/sink": "^1.0.17",
+    "japa": "^2.0.10",
+    "japa-cli": "^1.0.1"
+  }
+}
